@@ -17,12 +17,12 @@ function AdsysNavbar() {
                     <Nav.Link href="/#/">Home</Nav.Link>
                     <Nav.Link href="#create">Create</Nav.Link>
                     <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-                        <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-                        <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
+                        <NavDropdown.Item href="/details">Button 1</NavDropdown.Item>
+                        <NavDropdown.Item href="#action/3.2">Button 2</NavDropdown.Item>
                         <NavDropdown.Item href="#action/3.3">
                         </NavDropdown.Item>
                         <NavDropdown.Divider/>
-                        <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
+                        <NavDropdown.Item href="#action/3.4">Button 3</NavDropdown.Item>
                     </NavDropdown>
                 </Nav>
                 <Form inline>

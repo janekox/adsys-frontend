@@ -6,10 +6,10 @@ class Home extends React.Component {
     render() {
         return (<Row className="pt-3 mt-3">
             <CardDeck>
+                {/*<AdCard></AdCard>
                 <AdCard></AdCard>
                 <AdCard></AdCard>
-                <AdCard></AdCard>
-                <AdCard></AdCard>
+                <AdCard></AdCard>*/}
             </CardDeck>
         </Row>)
     }
