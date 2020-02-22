@@ -24,11 +24,12 @@ const ads = [
 
 const MockApi = {
     getAds: () => {
-        // TODO replace with HTTP call to backend
         return new Promise(resolve => resolve(ads));
     },
-
-    // TODO add method for creating advertisement
+    createAd: (data) => {
+        ads.push(data);
+        return Promise.resolve();
+    }
 };
 
 export default MockApi;
