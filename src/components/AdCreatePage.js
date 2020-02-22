@@ -2,6 +2,7 @@ import React from 'react';
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import MockApi from "../services/MockApi";
+import Modal from "react-bootstrap/Modal";
 
 class AdCreatePage extends React.Component {
 
@@ -9,6 +10,7 @@ class AdCreatePage extends React.Component {
         super();
         // TODO add form controls for title, image URL, price to the website (JSX in render method)
         this.state = {
+            showModal: false,
             ad: {
                 title: 'Example ad',
                 image: 'https://0.allegroimg.com/s512/03d14e/0ca727674004a6b2a0bb00417620/BERNARD-L-Fixed-gear-single-speed-kolarzowka',
@@ -25,9 +27,9 @@ class AdCreatePage extends React.Component {
     }
 
     submitHandler(event) {
-        console.log(this.state.ad);
         event.preventDefault();
         MockApi.createAd(this.state.ad);
+        this.setState({showModal: true});
     }
 
     handleChange(e) {
@@ -36,6 +38,13 @@ class AdCreatePage extends React.Component {
             [e.target.name]: e.target.value
         };
         this.setState({ad: a});
+    }
+
+    adCreatedRedirect() {
+        window.location.hash = '/';
+    }
+
+    onModalHide() {
     }
 
     render() {
@@ -78,6 +87,16 @@ class AdCreatePage extends React.Component {
 
                     <Button variant="primary" type="submit">Submit</Button>
                 </Form>
+                <h1>{this.state.showModal}</h1>
+                <Modal show={this.state.showModal} onHide={this.onModalHide}>
+                    <Modal.Header>
+                        <Modal.Title>Ad created</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>Thank you for adding ad</Modal.Body>
+                    <Modal.Footer>
+                        <Button variant="primary" onClick={this.adCreatedRedirect}>Go to home</Button>
+                    </Modal.Footer>
+                </Modal>
             </div>
         );
     }
