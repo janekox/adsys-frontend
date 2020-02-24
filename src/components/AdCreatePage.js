@@ -115,28 +115,21 @@ class AdCreatePage extends React.Component {
                     </Form.Group>
                     {/*//////////////////////////////////////////////////////////////////////////////////////////////////*/}
                     <Form.Group>
-                        {['checkbox'].map(type => (
-                            <div key={`default-${type}`}
-                                 className="mb-3">
-                                <FormCheck type={type} name={"AdAgreeTT"} id={"AdAgreeTT"}
-                                           label={"Agree to the data processing terms & condition"}/>
-                            </div>
-                        ))}
+                        <div key="default-checkbox" className="mb-3">
+                            <FormCheck type="checkbox" name={"AdAgreeTT"} id={"AdAgreeTT"}
+                                       label={"Agree to the data processing terms & condition"}/>
+                        </div>
                         {/*value={this.state.ad.AdAgreeTT}*/}{/*here i have a problem with the form,at that the check box is giving the information from */}
                         {/*onChange={this.handleChange}/>*/}
                     </Form.Group>
                     <Form.Group>
-                        {['checkbox'].map(type => (
-                            <div key={`default-${type}`}
-                                 className="mb-3">
-                                <FormCheck type={type} name="adAgreePI" id={"adAgreePI"}
-                                           label={"Agree that all the data entered is public and you give permission for other people to see it."}/>
-                            </div>
-                        ))}
+                        <div key="default-checkbox" className="mb-3">
+                            <FormCheck type="checkbox" name="adAgreePI" id={"adAgreePI"}
+                                       label={"Agree that all the data entered is public and you give permission for other people to see it."}/>
+                        </div>
                         {/*value={this.state.ad.adAgreePI}*/}
                         {/*onChange={this.handleChange}/>*/}
                     </Form.Group>
-
 
                     <Button variant="primary" type="submit">Submit</Button>
                 </Form>

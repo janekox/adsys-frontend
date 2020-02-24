@@ -13,8 +13,10 @@ class AdCard extends React.Component {
     render() {
         return <Card>
             <Card.Body>
-                <Card.Title>{this.state.ad.title}</Card.Title>
-                <Card.Img variant="top" src={this.state.ad.image}></Card.Img>
+                <Link to={`/details/${this.state.ad._id}`}>
+                    <Card.Title>{this.state.ad.title}</Card.Title>
+                    <Card.Img variant="top" src={this.state.ad.image}></Card.Img>
+                </Link>
                 <Card.Body>
                     <Card.Text> Condition: {this.state.ad.condition} </Card.Text>
                     <Card.Text> Price: £{this.state.ad.price} </Card.Text>
@@ -23,15 +25,11 @@ class AdCard extends React.Component {
                         <Card.Text> - {this.state.ad.email}</Card.Text>
                         <Card.Text> - {this.state.ad.phone}</Card.Text>
                     </Card.Body>
-
-
                 </Card.Body>
-
-
                 <Card.Text>
                     {this.state.ad.description}
                 </Card.Text>
-                <Link to="/details">Show Details</Link>
+                <Link to={`/details/${this.state.ad._id}`}>Show Details</Link>
             </Card.Body>
             <Card.Footer>
                 <small className="text-muted"></small>

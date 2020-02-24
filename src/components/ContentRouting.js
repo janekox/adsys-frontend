@@ -13,7 +13,7 @@ class ContentRouting extends React.Component {
                 <Route exact path='/' component={Home}/>
                 <Route exact path='/about' component={AboutPage}/>
                 <Route exact path='/create' component={AdCreatePage}/>
-                <Route exact path='/details' component={AdDetailsPage}/>
+                <Route exact path='/details/:id' component={AdDetailsPage}/>
             </Switch>
         </main>)
     }
