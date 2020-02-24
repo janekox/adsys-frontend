@@ -1,8 +1,20 @@
 import React from 'react';
+import {Link} from "react-router-dom";
+
 
 function AdDetailsPage() {
-    return (<h1>Ad details</h1>);
+
+
+    return (
+        <div>
+            <h2>Details :</h2>
+
+            <p></p>
+
+        </div>
+    );
 }
+
 
 export default AdDetailsPage;
 

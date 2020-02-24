@@ -7,6 +7,7 @@ import Button from "react-bootstrap/Button";
 import React from "react";
 import {Link} from "react-router-dom";
 
+
 function AdsysNavbar() {
     return <Navbar bg="dark" variant="dark" expand="lg">
         <div className="container">
@@ -19,8 +20,10 @@ function AdsysNavbar() {
                     <Nav.Link href="#create">Create</Nav.Link>
                 </Nav>
                 <Form inline>
+
                     <FormControl type="text" placeholder="Search" className="mr-sm-2"/>
                     <Button variant="outline-success">Search</Button>
+
                 </Form>
             </Navbar.Collapse>
         </div>
