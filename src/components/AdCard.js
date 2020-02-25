@@ -26,9 +26,7 @@ class AdCard extends React.Component {
                         <Card.Text> - {this.state.ad.phone}</Card.Text>
                     </Card.Body>
                 </Card.Body>
-                <Card.Text>
-                    {this.state.ad.description}
-                </Card.Text>
+
                 <Link to={`/details/${this.state.ad._id}`}>Show Details</Link>
             </Card.Body>
             <Card.Footer>
