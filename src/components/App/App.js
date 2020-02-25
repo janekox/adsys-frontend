@@ -15,6 +15,9 @@ function App() {
                     </HashRouter>
                 </div>
             </main>
+            <footer className="pt-5 pb-5">
+                <p className="text-center text-muted">Adverter &copy; 2020</p>
+            </footer>
         </div>
     );
 }

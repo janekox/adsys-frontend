@@ -1,5 +1,5 @@
 import React from 'react';
-import MockApi from "../services/MockApi";
+import BackendAPI from "../services/BackendAPI";
 import {Image} from "react-bootstrap";
 import './AdDetailsPage.css';
 import Container from "react-bootstrap/Container";
@@ -12,7 +12,7 @@ class AdDetailsPage extends React.Component {
         super(props);
         const id = props.match.params.id;
         this.state = {id: id, ad: {}};
-        MockApi.getAd(this.state.id).then(ad => {
+        BackendAPI.getAd(this.state.id).then(ad => {
             this.setState({ad: ad});
         });
     }

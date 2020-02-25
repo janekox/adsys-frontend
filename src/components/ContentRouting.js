@@ -8,14 +8,12 @@ import AboutPage from "./AboutPage";
 
 class ContentRouting extends React.Component {
     render() {
-        return (<main>
-            <Switch>
-                <Route exact path='/' component={Home}/>
-                <Route exact path='/about' component={AboutPage}/>
-                <Route exact path='/create' component={AdCreatePage}/>
-                <Route exact path='/details/:id' component={AdDetailsPage}/>
-            </Switch>
-        </main>)
+        return (<Switch>
+            <Route exact path='/' component={Home}/>
+            <Route exact path='/about' component={AboutPage}/>
+            <Route exact path='/create' component={AdCreatePage}/>
+            <Route exact path='/details/:id' component={AdDetailsPage}/>
+        </Switch>)
     }
 }
 

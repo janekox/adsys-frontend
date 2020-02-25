@@ -1,7 +1,7 @@
 import React from 'react';
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import MockApi from "../services/MockApi";
+import BackendAPI from "../services/BackendAPI";
 import Modal from "react-bootstrap/Modal";
 
 import {FormCheck} from "react-bootstrap";
@@ -32,7 +32,7 @@ class AdCreatePage extends React.Component {
     submitHandler(event) {
         console.log(this.state.ad);
         event.preventDefault();  // prevent default action when submithandler is called which means that no input request
-        MockApi.createAd(this.state.ad);
+        BackendAPI.createAd(this.state.ad);
         this.setState({showModal: true});
     }
 
