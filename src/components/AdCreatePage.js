@@ -3,14 +3,15 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import BackendAPI from "../services/BackendAPI";
 import Modal from "react-bootstrap/Modal";
-
 import {FormCheck} from "react-bootstrap";
+import './AdCreateCard.css';
+import OverlayTrigger from 'react-bootstrap/OverlayTrigger'
+import Tooltip from 'react-bootstrap/Tooltip'
 
 class AdCreatePage extends React.Component {
 
     constructor() {
         super();
-        // TODO add form controls for title, image URL, price to the website (JSX in render method)
         this.state = {
             showModal: false,
             ad: {   //this is advertisement data where all the information about a new post is stored then send to backend
@@ -55,7 +56,7 @@ class AdCreatePage extends React.Component {
         return (
             <div>
                 <h2>Create new advertisement</h2>
-                <Form onSubmit={this.submitHandler}>
+                <Form className="Create-Form" onSubmit={this.submitHandler}>
                     {/*//////////////////////////////////////////////////////////////////////////////////////////////////*/}
                     <Form.Group controlId="adTitle">
                         <Form.Label>Title of the Advertisement : </Form.Label>
@@ -65,8 +66,19 @@ class AdCreatePage extends React.Component {
                     </Form.Group>
                     {/*//////////////////////////////////////////////////////////////////////////////////////////////////*/}
                     <Form.Group controlId="adUrl">
-                        <Form.Label>Add a picture here ( An image might help the user to decide if they want to buy your
-                            product : </Form.Label>
+                        <Form.Label>Add a picture here :
+
+                            <OverlayTrigger
+                                overlay={<Tooltip id="tooltip-disabled">An image might help the user to decide if they
+                                    want to buy your
+                                    product </Tooltip>}>
+                            <span className="d-inline-block">
+                                <p disabled className="text-primary" style={{pointerEvents: 'none'}}>
+                            more
+                            </p>
+                            </span>
+                            </OverlayTrigger>
+                        </Form.Label>
                         <Form.Control type="text" name="image" placeholder="Place here the image URL" required
                                       value={this.state.ad.image}
                                       onChange={this.handleChange}/>
@@ -107,7 +119,17 @@ class AdCreatePage extends React.Component {
                     </Form.Group>
                     {/*//////////////////////////////////////////////////////////////////////////////////////////////////*/}
                     <Form.Group controlId="adPhone">
-                        <Form.Label>Phone Number</Form.Label>
+                        <Form.Label>Phone Number :
+                            <OverlayTrigger
+                                overlay={<Tooltip id="tooltip-disabled">Its needs to be a Uk phone number. Starting
+                                    with: 0044 or +44</Tooltip>}>
+                            <span className="d-inline-block">
+                                <p disabled className="text-primary" style={{pointerEvents: 'none'}}>
+                            more
+                            </p>
+                            </span>
+                            </OverlayTrigger>
+                        </Form.Label>
                         <Form.Control type="tel" name="phone" placeholder="+44 XXX XXX XXXX" required
                                       pattern="\+[0-9]{12,14}"/* that limits the values that you can put in so only numbers from 1-9 can be put in this form */
                                       value={this.state.ad.phone}
