@@ -4,6 +4,7 @@ import AdCard from "./AdCard";
 import BackendAPI from "../services/BackendAPI";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
+import Col from "react-bootstrap/Col";
 
 class Home extends React.Component {
 
@@ -20,7 +21,7 @@ class Home extends React.Component {
     }
 
     renderAdCard(ad, i) {
-        return (<AdCard key={i} data-ad={ad}></AdCard>)
+        return (<Col xs="12" sm="6" md="4" lg="3"><AdCard key={i} data-ad={ad}></AdCard></Col>)
     }
 
 
@@ -46,25 +47,26 @@ class Home extends React.Component {
 
     render() {
         return (<Row className="pt-3 mt-3">
-            <Modal show={this.state.showModal} onHide={this.handleClose}>
-                <Modal.Header closeButton>
-                    <Modal.Title>Network error</Modal.Title>
-                </Modal.Header>
-                <Modal.Body>
-                    <p>Can not establish connection to backend server. Check your Internet connection.</p>
-                    <pre>{this.state.error}</pre>
-                </Modal.Body>
-                <Modal.Footer>
-                    <Button variant="primary" onClick={this.handleClose}>
-                        Close
-                    </Button>
-                </Modal.Footer>
-            </Modal>
+            <Col>
+                <Modal show={this.state.showModal} onHide={this.handleClose}>
+                    <Modal.Header closeButton>
+                        <Modal.Title>Network error</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>
+                        <p>Can not establish connection to backend server. Check your Internet connection.</p>
+                        <pre>{this.state.error}</pre>
+                    </Modal.Body>
+                    <Modal.Footer>
+                        <Button variant="primary" onClick={this.handleClose}>
+                            Close
+                        </Button>
+                    </Modal.Footer>
+                </Modal>
 
-            {/* TODO Check on react bootstrap documentation if CardGroup has settings for responsive sizing */}
-            <CardGroup>
-                {this.state.ads.map(this.renderAdCard)}
-            </CardGroup>
+                <Row>
+                    {this.state.ads.map(this.renderAdCard)}
+                </Row>
+            </Col>
         </Row>)
     }
 }
