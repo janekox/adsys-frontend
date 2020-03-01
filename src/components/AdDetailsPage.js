@@ -24,26 +24,36 @@ class AdDetailsPage extends React.Component {
                 <Container>
                     <Row>
                         <Col sm={8}>
-                            <p><h2>{this.state.ad.title}</h2></p>
-                            <Col md={{span: 9, offset: 1}}>
-                                <p> Description: </p>
-                                <p>{this.state.ad.description}</p></Col>
+                            <p><h2>{this.state.ad.title}</h2>
+                                <ul>
+                                    <p>Condition : {this.state.ad.condition}</p>
+                                    <p>Description:</p>
+                                    <p>{this.state.ad.description}</p>
+                                </ul>
+                            </p>
                         </Col>
 
                         <Col xl={4}>
                             <Image src={this.state.ad.image} className=""></Image>
+                            <h5>Price: {this.state.ad.price}</h5>
 
                         </Col>
                     </Row>
-                    <Row className="pt-5">
-                        <Col sm>sm=true</Col>
-                        <Col sm>sm=true</Col>
-                        <Col sm><h4>Price: {this.state.ad.price}</h4></Col>
+                    <Row>
+                        <Col sm={8}>
+                            <ul>Contacts:
+
+                                <li> Phone number : {this.state.ad.phone}</li>
+                                <li> Email: {this.state.ad.email}</li>
+                            </ul>
+
+                        </Col>
                     </Row>
+
+
                 </Container>
 
 
-                <h3>{this.state.ad.price}</h3>
             </div>
         );
     }
