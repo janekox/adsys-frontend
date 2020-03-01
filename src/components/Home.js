@@ -31,7 +31,7 @@ class Home extends React.Component {
     componentDidMount() {
         const promise = BackendAPI.getAds();
         promise.then(response => {
-            this.setState({ads: response.data});
+            this.setState({ads: response});
         }).catch(error => {
             this.setState({showModal: true, error: error.toString()});
         })
