@@ -21,7 +21,7 @@ class Home extends React.Component {
     }
 
     renderAdCard(ad, i) {
-        return (<Col xs="12" sm="6" md="4" lg="3"><AdCard key={i} data-ad={ad}></AdCard></Col>)
+        return (<Col xs="12" sm="6" md="4" lg="3" key={i}><AdCard data-ad={ad}></AdCard></Col>)
     }
 
 

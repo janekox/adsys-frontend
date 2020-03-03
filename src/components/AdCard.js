@@ -19,10 +19,8 @@ class AdCard extends React.Component {
                 </Link>
                 <Card.Body>
                     <Card.Text>
-                        <ul>
-                            Condition: {this.state.ad.condition}
-                            Price: £{this.state.ad.price}
-                        </ul>
+                        Condition: {this.state.ad.condition} <br/>
+                        Price: £{this.state.ad.price}
                     </Card.Text>
                 </Card.Body>
 
