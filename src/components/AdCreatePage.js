@@ -20,6 +20,7 @@ class AdCreatePage extends React.Component {
             showModal: false,
             ad: {   //this is advertisement data where all the information about a new post is stored then send to backend
                 title: 'Example ad',
+                tag: 'Kids',
                 image: 'https://0.allegroimg.com/s512/03d14e/0ca727674004a6b2a0bb00417620/BERNARD-L-Fixed-gear-single-speed-kolarzowka',
                 condition: 'Brand new',
                 price: 2000,
@@ -69,6 +70,22 @@ class AdCreatePage extends React.Component {
                                 <Form.Control type="text" name="title" placeholder="Title of your adv." required
                                               value={this.state.ad.title}
                                               onChange={this.handleChange}/>
+                            </Form.Group>
+                            {/*//////////////////////////////////////////////////////////////////////////////////////////////////*/}
+                            <Form.Group controlId="adTag">
+                                <Form.Label>What category is your item in?</Form.Label>
+                                <Form.Control as="select" onChange={this.handleChange} name="condition" required
+                                              value={this.state.ad.tag}>
+                                    <option>Music & Education</option>
+                                    <option>Fashion</option>
+                                    <option>Electronics</option>
+                                    <option>Sports & Hobby</option>
+                                    <option>Kids</option>
+                                    <option>House & Garden</option>
+                                    <option>Animals</option>
+                                    <option>Automotive</option>
+
+                                </Form.Control>
                             </Form.Group>
                             {/*//////////////////////////////////////////////////////////////////////////////////////////////////*/}
                             <Form.Group controlId="adUrl">

@@ -24,13 +24,12 @@ class AdDetailsPage extends React.Component {
                 <Container>
                     <Row>
                         <Col sm={8}>
-                            <p><h2>{this.state.ad.title}</h2>
-                                <ul>
-                                    <p>Condition : {this.state.ad.condition}</p>
-                                    <p>Description:</p>
-                                    <p>{this.state.ad.description}</p>
-                                </ul>
-                            </p>
+                            <h2>{this.state.ad.title}</h2>
+                            <ul>
+                                <p>Condition : {this.state.ad.condition}</p>
+                                <p>Description:</p>
+                                <p>{this.state.ad.description}</p>
+                            </ul>
                         </Col>
 
                         <Col xl={4}>

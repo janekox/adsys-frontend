@@ -19,6 +19,12 @@ function errorHandler(err) {
  * @param Object config
  * @returns {Promise<Response>}
  */
+function httpPost(path, data) {
+    const config = {method: 'POST', body: JSON.stringify(data)};
+    const endpointURL = ADSYS_BACKEND_ADDRESS + path;
+    return fetch(endpointURL, config).then(response => response.json())
+}
+
 function httpRequest(path, config = {method: 'GET'}) {
     const endpointURL = ADSYS_BACKEND_ADDRESS + path;
 
@@ -26,17 +32,15 @@ function httpRequest(path, config = {method: 'GET'}) {
         config.body = JSON.stringify(config.data);
         delete config.data;
     }
-
     return fetch(endpointURL, config)
         .then(responseHandler)
         .catch(errorHandler);
 }
-
 const BackendAPI = {
     getAd: (id) => httpRequest(`/ad/${id}`),
     getAds: () => httpRequest('/ads'),
-    createAd: () => false
-};
+    createAd: (data) => httpPost('/ad', data)
+}
 
 export default BackendAPI;
 
