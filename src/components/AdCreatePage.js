@@ -19,15 +19,16 @@ class AdCreatePage extends React.Component {
             },
             showModal: false,
             ad: {   //this is advertisement data where all the information about a new post is stored then send to backend
-                title: 'Example ad',
+                title: 'NEW AD',
                 tag: 'Kids',
-                image: 'https://0.allegroimg.com/s512/03d14e/0ca727674004a6b2a0bb00417620/BERNARD-L-Fixed-gear-single-speed-kolarzowka',
+                image: 'https://i.ytimg.com/vi/4-ZXG0nBymU/maxresdefault.jpg',
                 condition: 'Brand new',
                 price: 2000,
+                description: 'Lorem ipsum...',
                 email: 'fake@gmail.com',
                 phone: '+4412345678912',
-                termsConditionsConfirmation: '',    /*here i have a problem that it doesnt store the value if accepted*/
-                publicDataConfirmation: ''    /*here i have a problem that it doesnt store the value if accepted*/
+                adAgreeTT: true,    /*here i have a problem that it doesnt store the value if accepted*/
+                adAgreePI: true    /*here i have a problem that it doesnt store the value if accepted*/
             }
         };
 
@@ -156,7 +157,7 @@ class AdCreatePage extends React.Component {
                             {/*//////////////////////////////////////////////////////////////////////////////////////////////////*/}
                             <Form.Group>
                                 <div key="default-checkbox" className="mb-3">
-                                    <FormCheck type="checkbox" name={"AdAgreeTT"} id={"AdAgreeTT"}
+                                    <FormCheck type="checkbox" name={"AdAgreeTT"} id={"AdAgreeTT"} required
                                                label={"Agree to the data processing terms & condition"}/>
                                 </div>
                                 {/*value={this.state.ad.AdAgreeTT}*/}{/*here i have a problem with the form,at that the check box is giving the information from */}
@@ -164,7 +165,7 @@ class AdCreatePage extends React.Component {
                             </Form.Group>
                             <Form.Group>
                                 <div key="default-checkbox" className="mb-3">
-                                    <FormCheck type="checkbox" name="adAgreePI" id={"adAgreePI"}
+                                    <FormCheck type="checkbox" name="adAgreePI" id={"adAgreePI"} required
                                                label={"Agree that all the data entered is public and you give permission for other people to see it."}/>
                                 </div>
                                 {/*value={this.state.ad.adAgreePI}*/}

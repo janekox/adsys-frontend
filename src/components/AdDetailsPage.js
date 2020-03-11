@@ -23,7 +23,7 @@ class AdDetailsPage extends React.Component {
             <div className="ad-details-image">
                 <Container>
                     <Row>
-                        <Col sm={8}>
+                        <Col sm={6}>
                             <h2>{this.state.ad.title}</h2>
                             <ul>
                                 <p>Condition : {this.state.ad.condition}</p>
@@ -32,7 +32,7 @@ class AdDetailsPage extends React.Component {
                             </ul>
                         </Col>
 
-                        <Col xl={4}>
+                        <Col xl={6}>
                             <Image src={this.state.ad.image} className=""></Image>
                             <h5>Price: {this.state.ad.price}</h5>
 
