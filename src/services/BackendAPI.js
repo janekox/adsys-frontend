@@ -1,3 +1,5 @@
+'use strict';
+
 const ADSYS_BACKEND_ADDRESS = 'http://localhost:4000';
 
 function responseHandler(res) {
@@ -38,7 +40,13 @@ function httpRequest(path, config = {method: 'GET'}) {
 }
 const BackendAPI = {
     getAd: (id) => httpRequest(`/ad/${id}`),
-    getAds: () => httpRequest('/ads'),
+    getAds: (userInput) => {
+        var path = '/ads';
+        if(userInput){
+            path += `?title=${userInput}`;
+        }
+        return httpRequest(path);
+    },
     createAd: (data) => httpPost('/ad', data)
 }
 

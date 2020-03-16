@@ -6,10 +6,16 @@ import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import Col from "react-bootstrap/Col";
 
-class Home extends React.Component {
+class Browse extends React.Component {
 
-    constructor() {
+    query;
+
+    constructor(props) {
         super();
+        const search = props.location.search;
+        if (typeof search === "string") {
+            this.query = search.split("=")[1];
+        }
         this.state = {
             error: '',
             showModal: false,
@@ -29,7 +35,7 @@ class Home extends React.Component {
     }
 
     componentDidMount() {
-        const promise = BackendAPI.getAds();
+        const promise = BackendAPI.getAds(this.query);
         promise.then(response => {
             this.setState({ads: response});
         }).catch(error => {
@@ -71,4 +77,4 @@ class Home extends React.Component {
     }
 }
 
-export default Home
+export default Browse
