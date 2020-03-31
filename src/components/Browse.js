@@ -1,5 +1,5 @@
 import React from 'react'
-import {CardDeck, CardGroup, Row} from "react-bootstrap";
+import {Row} from "react-bootstrap";
 import AdCard from "./AdCard";
 import BackendAPI from "../services/BackendAPI";
 import Modal from "react-bootstrap/Modal";
@@ -17,6 +17,7 @@ class Browse extends React.Component {
             this.query = search.split("=")[1];
         }
         this.state = {
+            showNoData: false,
             error: '',
             showModal: false,
             ads: []
@@ -33,18 +34,25 @@ class Browse extends React.Component {
 
     renderNoData() {
         // TODO nice human friendly message
-        return (<Col>
-            <h2>We have no data</h2>
-            <p>More text</p>
-        </Col>);
+        if (this.state.showNoData) {
+            return (<Col>
+                <h2>We have no data</h2>
+                <p>More text</p>
+            </Col>)
+        }
     }
 
     componentDidMount() {
         const promise = BackendAPI.getAds(this.query);
         promise.then(response => {
             this.setState({ads: response});
+            if (response && response.length) {
+                this.setState({showNoData: false});
+            } else {
+                this.setState({showNoData: true});
+            }
         }).catch(error => {
-            this.setState({showModal: true, error: error.toString()});
+            this.setState({showModal: true, showNoData: true, error: error.toString()});
         })
     }
 

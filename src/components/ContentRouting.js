@@ -1,5 +1,5 @@
 import React from 'react'
-import {Switch, Route} from 'react-router-dom'
+import {Switch, Route, Redirect} from 'react-router-dom'
 
 import Browse from "./Browse";
 import AdCreatePage from "./AdCreatePage";
@@ -13,6 +13,7 @@ class ContentRouting extends React.Component {
             <Route exact path='/about' component={AboutPage}/>
             <Route exact path='/create' component={AdCreatePage}/>
             <Route exact path='/details/:id' component={AdDetailsPage}/>
+            <Redirect exact from='/' to='/browse'/>
         </Switch>)
     }
 }
