@@ -23,7 +23,7 @@ class Browse extends React.Component {
         };
         this.handleClose = this.handleClose.bind(this);
         this.handleShow = this.handleShow.bind(this);
-
+        this.renderNoData = this.renderNoData.bind(this);
     }
 
     renderAdCard(ad, i) {
@@ -31,7 +31,12 @@ class Browse extends React.Component {
     }
 
 
-    onModalHide() {
+    renderNoData() {
+        // TODO nice human friendly message
+        return (<Col>
+            <h2>We have no data</h2>
+            <p>More text</p>
+        </Col>);
     }
 
     componentDidMount() {
@@ -70,7 +75,7 @@ class Browse extends React.Component {
                 </Modal>
 
                 <Row>
-                    {this.state.ads.map(this.renderAdCard)}
+                    {(this.state.ads && this.state.ads.length) ? this.state.ads.map(this.renderAdCard) : this.renderNoData()}
                 </Row>
             </Col>
         </Row>)
