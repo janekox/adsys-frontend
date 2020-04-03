@@ -38,11 +38,14 @@ function httpRequest(path, config = {method: 'GET'}) {
         .then(responseHandler)
         .catch(errorHandler);
 }
+
 const BackendAPI = {
     getAd: (id) => httpRequest(`/ad/${id}`),
+    getAdByHash: (hash) => httpRequest(`/hash/${hash}`),
+    removeByHash: (hash) => httpRequest(`/remove/${hash}`),
     getAds: (userInput) => {
         var path = '/ads';
-        if(userInput){
+        if (userInput) {
             path += `?title=${userInput}`;
         }
         return httpRequest(path);

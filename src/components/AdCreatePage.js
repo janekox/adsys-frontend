@@ -11,6 +11,7 @@ import 'font-awesome/css/font-awesome.min.css'
 class AdCreatePage extends React.Component {
 
     constructor() {
+        // TODO 1. remove default values, 2. adjust messages for user
         super();
         this.state = {
             hints: {
@@ -29,7 +30,8 @@ class AdCreatePage extends React.Component {
                 phone: '+4412345678912',
                 adAgreeTT: true,    /*here i have a problem that it doesnt store the value if accepted*/
                 adAgreePI: true    /*here i have a problem that it doesnt store the value if accepted*/
-            }
+            },
+            manageUrl: '',
         };
 
         this.handleChange = this.handleChange.bind(this);  //those are binding i have found a video about it link###########
@@ -39,8 +41,10 @@ class AdCreatePage extends React.Component {
     submitHandler(event) {
         console.log(this.state.ad);
         event.preventDefault();  // prevent default action when submithandler is called which means that no input request
-        BackendAPI.createAd(this.state.ad);
-        this.setState({showModal: true});
+        BackendAPI.createAd(this.state.ad).then(result => {
+            const url = "http://localhost:3000/#/manage/" + result.hash;
+            this.setState({manageUrl: url, showModal: true});
+        });
     }
 
     handleChange(e) {
@@ -175,11 +179,16 @@ class AdCreatePage extends React.Component {
                             <Button variant="primary" type="submit">Submit</Button>
                         </Form>
                         <h1>{this.state.showModal}</h1>
-                        <Modal show={this.state.showModal} onHide={this.onModalHide}>
+                        <Modal show={this.state.showModal} onHide={this.onModalHide} size="lg">
                             <Modal.Header>
                                 <Modal.Title>Ad created</Modal.Title>
                             </Modal.Header>
-                            <Modal.Body>Thank you for adding ad</Modal.Body>
+                            <Modal.Body>
+                                <p>Thank you for adding ad.</p>
+                                <p>Use this link to manage your ad: <br/>
+                                    <a href={this.state.manageUrl}>{this.state.manageUrl}</a></p>
+                                <p><b>Don't forget to save this link now</b></p>
+                            </Modal.Body>
                             <Modal.Footer>
                                 <Button variant="primary" onClick={this.adCreatedRedirect}>Go to home</Button>
                             </Modal.Footer>
