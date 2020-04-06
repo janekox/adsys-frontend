@@ -26,6 +26,7 @@ class AdDetailsPage extends React.Component {
                         <Col sm={6}>
                             <h2>{this.state.ad.title}</h2>
                             <ul>
+                                <p>Tag: {this.state.ad.tag}</p>
                                 <p>Condition : {this.state.ad.condition}</p>
                                 <p>Description:</p>
                                 <p>{this.state.ad.description}</p>

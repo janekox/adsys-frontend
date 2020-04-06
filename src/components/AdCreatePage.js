@@ -20,16 +20,14 @@ class AdCreatePage extends React.Component {
             },
             showModal: false,
             ad: {   //this is advertisement data where all the information about a new post is stored then send to backend
-                title: 'NEW AD',
-                tag: 'Kids',
-                image: 'https://i.ytimg.com/vi/4-ZXG0nBymU/maxresdefault.jpg',
-                condition: 'Brand new',
-                price: 2000,
-                description: 'Lorem ipsum...',
-                email: 'fake@gmail.com',
-                phone: '+4412345678912',
-                adAgreeTT: true,    /*here i have a problem that it doesnt store the value if accepted*/
-                adAgreePI: true    /*here i have a problem that it doesnt store the value if accepted*/
+                title: '',
+                tag: '',
+                image: '',
+                condition: '',
+                price: '',
+                description: '',
+                email: '',
+                phone: ''
             },
             manageUrl: '',
         };
